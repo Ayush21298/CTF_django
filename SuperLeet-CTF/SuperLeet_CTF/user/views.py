@@ -13,3 +13,9 @@ def login(request):
 
 def signup(request):
     return render(request,'user/signup.html',{})
+
+def contest(request):
+    return render(request,'user/contest.html',{})
+
+def round1(request):
+    return render(request,'user/round1.html',{})
