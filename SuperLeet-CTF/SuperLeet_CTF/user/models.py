@@ -5,10 +5,12 @@ from django.contrib.postgres.fields import JSONField
 
 class User(models.Model):
     name=models.CharField(max_length=200)
-    username=models.CharField(max_length=32)
+    username=models.CharField(max_length=32, unique=True)
     email=models.EmailField(max_length=256)
     password=models.CharField(max_length=32)
     admin=models.BooleanField(default=False)
+    score=models.IntegerField(default=0)
+    solved=models.CharField(max_length=256,default='')
 
 class Question(models.Model):
 
@@ -17,4 +19,4 @@ class Question(models.Model):
     #     self.arg = arg
 
     que=models.CharField(max_length=256)
-    options = JSONField()
+    options = models.CharField(max_length=256)
